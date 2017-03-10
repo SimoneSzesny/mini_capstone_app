@@ -4,8 +4,8 @@ class ChairsController < ApplicationController
     render "chairs.html.erb"
   end
   def show
-    chairs_id = params[:id]
-    @chairs = Chair.find_by(id: chair_id)
+    chair_id = params[:id]
+    @chair = Chair.find_by(id: chair_id)
     render "show.html.erb"
 end
 end
