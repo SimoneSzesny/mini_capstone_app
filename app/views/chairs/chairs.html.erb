@@ -1,7 +1,20 @@
 <h1> All Chairs </h1>
-<% @chairs.each do |chair| %>
-<h1><%= chair.name %></h1>
-<img src="<%= chair.image%>"/>
-<h2><%= chair.price %></h2>
-<h2><%= chair.description %></h2>
+<% @chairs.each_slice(2) do |two_chairs| %>
+  <div class="row">
+  <% @chairs.each do |chair| %>
+  
+  <div class="col-md-6">
+    <div class="well">
+
+  <h1><%= chair.name %></h1>
+  <img class="chair-image" src="<%= chair.image%>">
+  <h2><%= chair.price %></h2>
+  <h2><%= chair.description %></h2>
+  <!-- <a href= "/chairs/:id/edit"> Edit Chairs. </a> -->
+    </div>
+  </div>
+  <% end %>
+  
+</div>
 <% end %>
+

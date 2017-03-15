@@ -1,0 +1,55 @@
+<h1>Edit Chair Info</h1>
+ <%= form_tag "/chairs/#{@chair.id}" , method: :patch do %>
+  <div class= "form-group">
+ Name: <input type="text" class="form-control" value="<%= @chair.name %>" name="form_name">
+</div>
+ <div>
+ Image: <input type="text" class="form-control" value="<%= @chair.image %>" name="form_image">
+ </div>
+ <div>
+ Price: <input type="text" class="form-control" value="<%= @chair.price %>" name="form_price">
+ </div>
+ <div>
+ Description: <input type="type" class="form-control" value="<%= @chair.description %>" name="form_description">
+ </div>
+ <input type="submit" value="Update Chair"> 
+  <% end %>
+  <!-- <form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputName3" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputName3" placeholder="Name" name="form_name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputImage3" class="col-sm-2 control-label">Image</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputImage3" placeholder="Image" name="form_image">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPrice3" class="col-sm-2 control-label">Price</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPrice3" placeholder="Price" name="form_price">
+    </div>
+  </div><div class="form-group">
+    <label for="inputDescription3" class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputDescription3" placeholder="Description" name="form_descripton">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      
+        <label>
+          
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Edit</button>
+    </div>
+  </div>
+</form> -->

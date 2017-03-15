@@ -24,6 +24,20 @@ def create
   render "create.html.erb"
 end
 
+def edit
+  chair_id = params[:id]
+  @chair = Chair.find_by(id: chair_id)
+  render "edit.html.erb"
+  end
 
-
+def update
+  chair_id = params[:id]
+  @chair = Chair.find_by(id: chair_id)
+  @chair.name = params[:form_name]
+  @chair.image = params[:form_image]
+  @chair.price = params[:form_price]
+  @chair.description = params[:form_description]
+  @chair.save
+  render "update.html.erb"
+  end
 end
