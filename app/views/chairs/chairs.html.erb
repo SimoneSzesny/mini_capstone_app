@@ -1,12 +1,12 @@
 <h1> All Chairs </h1>
 <% @chairs.each_slice(2) do |two_chairs| %>
   <div class="row">
-  <% @chairs.each do |chair| %>
+  <% two_chairs.each do |chair| %>
   
   <div class="col-md-6">
     <div class="well">
 
-  <h1><%= chair.name %></h1>
+  <h1><a href="/chairs/<%= chair.id %>"><%= chair.name %></a></h1>
   <img class="chair-image" src="<%= chair.image%>">
   <h2><%= chair.price %></h2>
   <h2><%= chair.description %></h2>

@@ -21,7 +21,8 @@ def create
   description: params[:form_desription]
   )
   chair.save
-  render "create.html.erb"
+  flash[:success] = "Chair sucessfully created!"
+  redirect_to "/chairs/#{chair.id}"
 end
 
 def edit
@@ -38,6 +39,15 @@ def update
   @chair.price = params[:form_price]
   @chair.description = params[:form_description]
   @chair.save
-  render "update.html.erb"
+  flash[:sucess] = "Chair successfully updated!"
+  redirect_to "/chairs/#{@chair.id}"
+  end
+
+  def destroy
+    chair_id = params[:id]
+    @chairs = Chair.find_by(id: chair_id)
+    @chair.destroy
+    flash[:danger] = "Chair successfully destroyed!"
+    redirect_to "/chairs"
   end
 end

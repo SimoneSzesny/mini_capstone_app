@@ -1,6 +1,14 @@
 <h1>Chair Info</h1>
 <h1><%= @chair.name %></h1>
 <img src="<%= @chair.image %>">
-
-<h3><%= @chair.price %></h3>
+<h3>Price:<%= @chair.price %></h3>
+<h3>Total With Sales Tax: <%= @chair.total %></h3>
+<h3><%= @chair.sale_message %></h3>
 <h3><%= @chair.description %></h3>
+<%= form_tag "/chairs/#{@chair.id}", method: :delete do %>
+ <input type="submit" value= "Destroy Chair">
+<% end %>
+ <%= link_to "", "/chairs/#{@chair.id}", method: :delete %>
+ <a href="/chairs">Back to all chairs</a>
+
+
