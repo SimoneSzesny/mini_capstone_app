@@ -7,7 +7,7 @@
     <div class="well">
 
   <h1><a href="/chairs/<%= chair.id %>"><%= chair.name %></a></h1>
-  <img class="chair-image" src="<%= chair.image%>">
+  <img class="chair-image" src="<%= Image.find_by(chair_id: chair.id).url %>">
   <h2><%= chair.price %></h2>
   <h2><%= chair.description %></h2>
   <!-- <a href= "/chairs/:id/edit"> Edit Chairs. </a> -->

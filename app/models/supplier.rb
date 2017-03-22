@@ -1,4 +1,4 @@
 class Supplier < ApplicationRecord
-  has_many :
+  has_many :chair
 
 end
