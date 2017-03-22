@@ -1,4 +1,5 @@
 class Chair < ApplicationRecord
+  belongs_to :supplier
   def sale_message
     if price.to_f < 10
       return "Sale Item!"

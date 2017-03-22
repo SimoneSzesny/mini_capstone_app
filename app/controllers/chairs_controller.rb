@@ -1,6 +1,7 @@
 class ChairsController < ApplicationController
   def index
-    @chairs = Chair.all
+    sort_attribute = params[:sort_by] || "name"
+    @chairs = Chair.all.order(sort_attribute)
     render "chairs.html.erb"
   end
   def show
@@ -10,7 +11,11 @@ class ChairsController < ApplicationController
   end
  
  def new
-  render "new.html.erb"
+  if params[:new_type] == "supplier"
+    render "new_supplier.html.erb"
+  elsif params[:new_type] == "chair"
+    render "new_chair.html.erb"
+  end
 end
 
 def create
@@ -29,7 +34,7 @@ def edit
   chair_id = params[:id]
   @chair = Chair.find_by(id: chair_id)
   render "edit.html.erb"
-  end
+end
 
 def update
   chair_id = params[:id]
@@ -41,12 +46,12 @@ def update
   @chair.save
   flash[:sucess] = "Chair successfully updated!"
   redirect_to "/chairs/#{@chair.id}"
-  end
+end
 
   def destroy
     chair_id = params[:id]
     @chairs = Chair.find_by(id: chair_id)
-    @chair.destroy
+    @chairs.destroy
     flash[:danger] = "Chair successfully destroyed!"
     redirect_to "/chairs"
   end

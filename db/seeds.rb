@@ -27,3 +27,16 @@
 # chair.save
 
 # puts "Success!"
+
+Image.create(url:"http://www.yliving.com/images/gus-truss-lounge-chair/gallery_3.jpg", chair_id:1)
+
+Image.create(url:"https://cdn.shopify.com/s/files/1/0400/4557/products/Barnaby_lane_Product-5_medium.jpg?v=1488931913", chair_id:2)
+
+Image.create(url:"https://st.hzcdn.com/simgs/cd31fbb803bf2a40_4-9271/midcentury-armchairs-and-accent-chairs.jpg", chair_id:3)
+
+Image.create(url:"https://thumbor-gc.tomandco.uk/unsafe/fit-in/628x360/center/middle/filters:fill(white)/www.sofa.com/static/products/large/FSPEG110STWFLM.jpg", chair_id:4)
+
+Image.create(url:"https://files.neptune.com//GetImage.ashx?imageGuid=fec76889-6c73-4cc7-9609-f6c27df23361&width=510&height=510", chair_id:5)
+
+
+
