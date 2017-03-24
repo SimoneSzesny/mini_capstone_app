@@ -54,5 +54,7 @@ end
     @chairs.destroy
     flash[:danger] = "Chair successfully destroyed!"
     redirect_to "/chairs"
+
+    
   end
 end

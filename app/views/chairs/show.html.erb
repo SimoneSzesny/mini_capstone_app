@@ -8,7 +8,16 @@
 <%= form_tag "/chairs/#{@chair.id}", method: :delete do %>
  <input type="submit" value= "Destroy Chair">
 <% end %>
+ <div>
  <%= link_to "", "/chairs/#{@chair.id}", method: :delete %>
- <a href="/chairs">Back to all chairs</a>
-
+ <input type="submit" value="Back To All Chairs">
+ </div>
+ 
+<h3>Purchase!</h3>
+<%= form_tag "/order?chair_id=#{@chair.id}", method: :post do %>
+  <div>
+   Quantity <input type="text" name="quantity">
+  </div>
+  <input type="submit" value="Buy">
+<% end %>
 

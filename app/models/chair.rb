@@ -1,6 +1,7 @@
 class Chair < ApplicationRecord
   has_many :images
   belongs_to :supplier
+  
 
   def sale_message
     if price.to_f < 10

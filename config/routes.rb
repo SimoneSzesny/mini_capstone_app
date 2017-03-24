@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"
-  get "login" => "sessons#destroy"
+  get "/logout" => "sessions#destroy"
+
+  post "/order" => "orders#create"
+  get "/order/show/:id" => "orders#show"
 end
 
