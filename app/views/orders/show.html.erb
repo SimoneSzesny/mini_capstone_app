@@ -1,8 +1,6 @@
-<h1>Order!</h1>
-<p>Product: <%= @chair.name %></p>
-<img src="<%= @chair.images[0].url %>">
-<p>Email: <%= current_user.email %></p>
-<p>Quantity: <%= @order.quantity %></p>
-<p>Subtotal: <%= @order.subtotal %></p>
-<p>Total: <%= @chair.total %></p>
-<p>Purchased: <%= @order.created_at %></p>
+<h1>Order Confirmation!</h1>
+<h1>Email: <%= current_user.email %></h1>
+<% @carted_products.each do |carted_product| %>
+  <h1>Chair Name:<%= carted_product.product.name %>
+  <h1>Chair Quantity:<%= carted_product.product.quantity %>
+<% end %>

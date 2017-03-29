@@ -1,6 +1,12 @@
 <h1>Chair Info</h1>
 <h1><%= @chair.name %></h1>
 <img class="chair-image" src="<%= Image.find_by(chair_id: @chair.id).url %>">
+<h3>Categories</h3>
+<ul>
+<% @chair.categories.each do |category| %>
+ <li><%= category.name %></li>
+ <% end %>
+</ul>
 <h3>Price:<%= @chair.price %></h3>
 <h3>Total With Sales Tax: <%= @chair.total %></h3>
 <h3><%= @chair.sale_message %></h3>
@@ -13,11 +19,11 @@
  <input type="submit" value="Back To All Chairs">
  </div>
  
-<h3>Purchase!</h3>
-<%= form_tag "/order?chair_id=#{@chair.id}", method: :post do %>
+<h3>Add To Cart!</h3>
+<%= form_tag "/carted_products/#{@chair.id}", method: :post do %>
   <div>
    Quantity <input type="text" name="quantity">
   </div>
-  <input type="submit" value="Buy">
+  <input type="submit" value="Add To Cart">
 <% end %>
 

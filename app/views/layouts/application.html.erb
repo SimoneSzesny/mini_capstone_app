@@ -39,7 +39,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            
           </ul>
         </li>
       </ul>
@@ -51,6 +51,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
+        <li><a href="/carted_products">Shopping Cart</a></li>
         <li><a href="/logout">Logout</a></li>
         <% else %>
         <li><a href="/signup">Sign Up</a></li>

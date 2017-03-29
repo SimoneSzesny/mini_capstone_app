@@ -1,21 +1,36 @@
 class OrdersController < ApplicationController
   def create
-    chair = Chair.find_by(id: params[:chair_id])
+    carted_products = CartedProduct.where("status = ? AND user_id= ?", "carted", current_user.id)
+    subtotal = 0
+    tax = 0
+    total = 0
+
+    carted_products.each do |carted_product|
+      subtotal += (carted_product.product.price * carted_product.quantity)
+      tax += (carted_product.product.tax * carted_product.quantity) 
+    end
+    total = subtotal + tax
+
+
     order = Order.new(
-      user_id: current_user.id,
-      quantity: params[:quantity].to_i,
-      chair_id: params[:chair_id],
-      subtotal: (chair.price * params[:quantity].to_i),
-      tax: (chair.tax * params[:quantity].to_i),
-      total: (chair.total * params[:quantity].to_i)
+      user_id: current_user.id, 
+      subtotal: subtotal, 
+      tax: tax, 
+      total: total
       )
     order.save
-
-    redirect_to "/order/show/#{order.id}"
+    
+    carted_products.each do |carted_product|
+      carted_product.status = "Purchased"
+      carted_product.order_id = order.id 
+      carted_product.save
+    end 
+    redirect_to "/orders/show/#{order.id}"
   end
 
   def show
     @order = Order.find_by(id: params[:id])
+    @carted_products = CartedProduct.where(order_id: @order.id)
     @chair = Chair.find_by(id: @order.chair_id)
     render "show.html.erb"
 

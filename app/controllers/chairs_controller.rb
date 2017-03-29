@@ -3,6 +3,19 @@ class ChairsController < ApplicationController
     sort_attribute = params[:sort_by] || "name"
     @chairs = Chair.all.order(sort_attribute)
     render "chairs.html.erb"
+  # if params[:form_name]
+  #     @chairs = Chair.where("name LIKE ?", "%" + params[:form_name] + "%")
+  #   elsif params[:discounted] == "true"
+  #     @chairs = Chair.where("price < ?", 10)
+  #   elsif params[:category]@
+  #     category = Category.find_by(name: params[:category])
+  #     @products = category.products
+  #   else
+  #     sort_attribute = params[:sort_by] || "name"
+  #     sort_attribute_order = params[:sort_order] || "asc"
+  #     @chairs = Chair.all.order(sort_attribute => sort_attribute_order)
+  #     # @products = Product.all.order(params[:sort_by])
+  #   end
   end
   def show
     chair_id = params[:id]
