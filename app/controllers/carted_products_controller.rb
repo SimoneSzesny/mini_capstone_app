@@ -4,7 +4,7 @@ class CartedProductsController < ApplicationController
     carted_product = CartedProduct.new(
       quantity: params[:quantity],
       user_id: current_user.id,
-      product_id: params[:product_id],
+      chair_id: params[:chair_id],
       status: "carted"
       )
     carted_product.save

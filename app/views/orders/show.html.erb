@@ -1,6 +1,6 @@
 <h1>Order Confirmation!</h1>
 <h1>Email: <%= current_user.email %></h1>
 <% @carted_products.each do |carted_product| %>
-  <h1>Chair Name:<%= carted_product.product.name %>
-  <h1>Chair Quantity:<%= carted_product.product.quantity %>
+  <h1>Chair Name:<%= carted_product.chair.name %>
+  
 <% end %>

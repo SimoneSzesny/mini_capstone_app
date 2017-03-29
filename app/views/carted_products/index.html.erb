@@ -1,8 +1,8 @@
 <h1>Your Chairs</h1>
 <% @carted_products.each do |carted_product| %>
   <div>
-    <h2>Name: <%= Chair.find_by(id: carted_product.product_id).name %></h2>
-   <h2>Price: <%= Chair.find_by(id: carted_product.product_id).price %></h2>
+    <h2>Name: <%= Chair.find_by(id: carted_product.chair_id).name %></h2>
+   <h2>Price: <%= Chair.find_by(id: carted_product.chair_id).price %></h2>
   </div>
 <% end %>
 
