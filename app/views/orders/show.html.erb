@@ -1,6 +1,10 @@
 <h1>Order Confirmation!</h1>
 <h1>Email: <%= current_user.email %></h1>
 <% @carted_products.each do |carted_product| %>
-  <h1>Chair Name:<%= carted_product.chair.name %>
-  
-<% end %>
+  <h1>Chair Name:<%= carted_product.chair.name %></h1>
+  <h1>Quantity:<%= carted_product.quantity %></h1>
+  <img src=<%= carted_product.chair.images[0].url %>>
+ 
+ <% end %>
+
+ <h1>Total:<%= @order.total %></h1>

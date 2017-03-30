@@ -3,8 +3,13 @@
   <div>
     <h2>Name: <%= Chair.find_by(id: carted_product.chair_id).name %></h2>
    <h2>Price: <%= Chair.find_by(id: carted_product.chair_id).price %></h2>
+    <img src=<%= carted_product.chair.images[0].url %>>
+    <h1>
   </div>
-<% end %>
+ <%= form_tag "/carted_products/#{carted_product.id}", method: :delete do %>
+    <input type="submit" value="Remove from cart">
+  <% end %>
+  <% end %>
 
 <%= form_tag "/orders", method: :post do %>
   <input type="submit" value="Buy Now!">
