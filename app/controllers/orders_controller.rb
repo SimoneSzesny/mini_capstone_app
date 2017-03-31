@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_admin!
   def create
     carted_products = CartedProduct.where("status = ? AND user_id= ?", "carted", current_user.id)
     subtotal = 0

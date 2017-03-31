@@ -11,9 +11,11 @@
 <h3>Total With Sales Tax: <%= @chair.total %></h3>
 <h3><%= @chair.sale_message %></h3>
 <h3><%= @chair.description %></h3>
+<% if current_user && current_user.admin %>
 <%= form_tag "/chairs/#{@chair.id}", method: :delete do %>
  <input type="submit" value= "Destroy Chair">
 <% end %>
+<% end%>
  <div>
  <%= link_to "", "/chairs/#{@chair.id}", method: :delete %>
  <input type="submit" value="Back To All Chairs">
